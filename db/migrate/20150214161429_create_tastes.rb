@@ -1,8 +1,8 @@
 class CreateTastes < ActiveRecord::Migration
   def change
     create_table :tastes do |t|
-      t.integer :user_id
-      t.integer :artist_id
+      t.integer :user_id, null: false
+      t.integer :artist_id, null: false
       t.string :opinion
 
       t.timestamps
