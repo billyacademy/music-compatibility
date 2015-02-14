@@ -1,0 +1,18 @@
+Rate an Artist!
+
+<%# form_for [@artist, @taste] do |f| %>
+<%#= f.label :venue_id %>
+<%#= f.select :venue_id, options_for_select(@opinion) %>
+<%# end %>
+
+<% @artists.each do |artist| %>
+  <li><%= artist.name %></li>
+  <%= button_to "Love" %>
+  <%= button_to "Like" %>
+  <%= button_to "Don't Know" %>
+  <%= button_to "Dislike" %>
+<% end %>
+
+
+
+we want to create a form to create taste records
