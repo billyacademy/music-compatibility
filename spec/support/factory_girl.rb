@@ -7,4 +7,7 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :artist do
+    sequence(:name) {|n| "blink18#{n}" }
+  end
 end
