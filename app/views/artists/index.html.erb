@@ -7,7 +7,7 @@ Rate an Artist!
 
 <% @artists.each do |artist| %>
   <li><%= artist.name %></li>
-  <%= button_to "Love" %>
+  <%= button_to "Love", method: "post", controller: "tastes", action: "create" %>
   <%= button_to "Like" %>
   <%= button_to "Don't Know" %>
   <%= button_to "Dislike" %>
