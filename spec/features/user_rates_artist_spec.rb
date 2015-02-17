@@ -15,4 +15,14 @@ feature 'user rates an artist', %Q{
 
       expect(page).to have_content "You have successfully rated an artist!"
     end
+
+    scenario 'no artist to rate' do
+      user = FactoryGirl.create(:user)
+
+      sign_in_as(user)
+
+      click_link "Rate an Artist"
+
+      expect(page).to have_content "You have rated every artist"
+    end
   end

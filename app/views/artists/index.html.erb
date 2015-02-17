@@ -1,7 +1,7 @@
-Rate an Artist!
+<h1>Rate an Artist!</h1><br>
 
 <% if @artist == nil %>
-  <h1>You have rated every artist!</h1>
+  <h3>You have rated every artist!</h3>
 <% else %>
   <%= @artist.name %>
   <%= button_to "Love", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Love" %>
