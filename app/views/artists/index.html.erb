@@ -1,18 +1,11 @@
 Rate an Artist!
 
-<%# form_for [@artist, @taste] do |f| %>
-<%#= f.label :venue_id %>
-<%#= f.select :venue_id, options_for_select(@opinion) %>
-<%# end %>
-
-<% @artists.each do |artist| %>
-  <li><%= artist.name %></li>
-  <%= button_to "Love", method: :post, controller: "tastes", action: "create", artist_id: artist.id, user_id: current_user, opinion: "Love" %>
-  <%= button_to "Like", method: :post, controller: "tastes", action: "create", artist_id: artist.id, user_id: current_user, opinion: "Like" %>
-  <%= button_to "Don't Know", method: :post, controller: "tastes", action: "create", artist_id: artist.id, user_id: current_user, opinion: "Don't Know" %>
-  <%= button_to "Dislike", method: :post, controller: "tastes", action: "create", artist_id: artist.id, user_id: current_user, opinion: "Dislike" %>
+<% if @artist == nil %>
+  <h1>You have rated every artist!</h1>
+<% else %>
+  <%= @artist.name %>
+  <%= button_to "Love", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Love" %>
+  <%= button_to "Like", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Like" %>
+  <%= button_to "Don't Know", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Don't Know" %>
+  <%= button_to "Dislike", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Dislike" %>
 <% end %>
-
-
-
-we want to create a form to create taste records
