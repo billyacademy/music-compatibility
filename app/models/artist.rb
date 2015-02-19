@@ -1,4 +1,5 @@
 class Artist < ActiveRecord::Base
+  has_many :tastes
   validates :name, presence: true
 
   def self.rand_unrated_artist(user)
