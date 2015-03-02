@@ -18,6 +18,7 @@
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Rate an Artist', artists_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
