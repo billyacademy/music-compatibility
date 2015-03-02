@@ -2,64 +2,65 @@ Welcome <%= current_user.email %><br><br>
 
 
 <% @users.each do |user| %>
-  <% max_score = 0 %>
-  <% curr_score = 0 %>
   <% if user.id != current_user.id %>
     <%= user.email %>
     <% Taste.where(user_id: current_user).each do |cur_user_taste| %>
       <% user_taste = Taste.find_by(artist_id: cur_user_taste.artist_id, user_id: user) %>
       <% if user_taste != nil %>
         <% if cur_user_taste.opinion == "Love" && user_taste.opinion == "Love" %>
-          <% max_score += 200 %>
-          <% curr_score += 200 %>
+          <% @max_score += 200 %>
+          <% @curr_score += 200 %>
         <% elsif cur_user_taste.opinion == "Love" && user_taste.opinion == "Like" %>
-          <% max_score += 100 %>
-          <% curr_score += 100 %>
+          <% @max_score += 100 %>
+          <% @curr_score += 100 %>
         <% elsif cur_user_taste.opinion == "Love" && user_taste.opinion == "Dislike" %>
-          <% max_score += 200 %>
-          <% curr_score += 0 %>
+          <% @max_score += 200 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Love" && user_taste.opinion == "Don't Know" %>
-          <% max_score += 25 %>
-          <% curr_score += 0 %>
+          <% @max_score += 25 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Like" && user_taste.opinion == "Love" %>
-          <% max_score += 100 %>
-          <% curr_score += 100 %>
+          <% @max_score += 100 %>
+          <% @curr_score += 100 %>
         <% elsif cur_user_taste.opinion == "Like" && user_taste.opinion == "Like" %>
-          <% max_score += 100 %>
-          <% curr_score += 100 %>
+          <% @max_score += 100 %>
+          <% @curr_score += 100 %>
         <% elsif cur_user_taste.opinion == "Like" && user_taste.opinion == "Dislike" %>
-          <% max_score += 50 %>
-          <% curr_score += 0 %>
+          <% @max_score += 50 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Like" && user_taste.opinion == "Don't Know" %>
-          <% max_score += 10 %>
-          <% curr_score += 0 %>
+          <% @max_score += 10 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Dislike" && user_taste.opinion == "Love" %>
-          <% max_score += 200 %>
-          <% curr_score += 0 %>
+          <% @max_score += 200 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Dislike" && user_taste.opinion == "Like" %>
-          <% max_score += 50 %>
-          <% curr_score += 0 %>
+          <% @max_score += 50 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Dislike" && user_taste.opinion == "Dislike" %>
-          <% max_score += 100 %>
-          <% curr_score += 100 %>
+          <% @max_score += 100 %>
+          <% @curr_score += 100 %>
         <% elsif cur_user_taste.opinion == "Dislike" && user_taste.opinion == "Don't Know" %>
-          <% max_score += 0 %>
-          <% curr_score += 0 %>
+          <% @max_score += 0 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Don't Know" && user_taste.opinion == "Love" %>
-          <% max_score += 25 %>
-          <% curr_score += 0 %>
+          <% @max_score += 25 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Don't Know" && user_taste.opinion == "Like" %>
-          <% max_score += 10 %>
-          <% curr_score += 0 %>
+          <% @max_score += 10 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Don't Know" && user_taste.opinion == "Dislike" %>
-          <% max_score += 0 %>
-          <% curr_score += 0 %>
+          <% @max_score += 0 %>
+          <% @curr_score += 0 %>
         <% elsif cur_user_taste.opinion == "Don't Know" && user_taste.opinion == "Don't Know" %>
-          <% max_score += 25 %>
-          <% curr_score += 25 %>
+          <% @max_score += 25 %>
+          <% @curr_score += 25 %>
         <% end %>
       <% end %>
     <% end %>
-    <br>You are <%= ((curr_score.to_f/max_score.to_f)*100).round(2) %>% compatible with this user!<br><br>
+    <br>You are <%= ((@curr_score.to_f/@max_score.to_f)*100).round(2) %>% compatible with this user!<br><br>
+    <% @curr_score = 0 %>
+    <% @max_score = 0 %>
+
   <% end %>
 <% end %>
