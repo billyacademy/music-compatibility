@@ -1,13 +1,15 @@
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+
 <h1>Rate an Artist!</h1><br>
 
 <% if @artist == nil %>
   <h3>You have rated every artist!</h3>
 <% else %>
-  <div id="artist_name"><p><%= @artist.name %></p></div>
+  <div id="artist_name"><h2><%= @artist.name %></h2></div>
   <div id="tastes">
-  <%= button_to "Love", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Love" %>
-  <%= button_to "Like", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Like" %>
-  <%= button_to "Don't Know", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Don't Know" %>
-  <%= button_to "Dislike", method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Dislike" %>
+  <%= button_to "Love", { method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Love" }, class: "button"%>
+  <%= button_to "Like", { method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Like" }, class: "button" %>
+  <%= button_to "Don't Know", { method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Don't Know" }, class: "button" %>
+  <%= button_to "Dislike", { method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Dislike" }, class: "button" %>
   </div>
 <% end %>

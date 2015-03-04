@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
 <head>
   <title>MusicCompatibility</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -29,11 +30,6 @@
     </section>
   </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
 
   <%= yield %>
 
@@ -44,5 +40,10 @@
     });
   <% end %>
   <%= yield :extra_footer %>
+  <%- flash.each do |key, value| -%>
+    <div class="flash flash-<%= key %>">
+      <%= value %>
+    </div>
+  <%- end -%>
 </body>
 </html>
