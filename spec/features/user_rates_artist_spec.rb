@@ -39,6 +39,5 @@ feature 'user rates an artist', %Q{
       click_button "Dislike"
       expect(page).to have_content "isn't for everyone, we won't tell!"
       expect(page).to have_content "You have rated every artist"
-      save_and_open_page
   end
 end
