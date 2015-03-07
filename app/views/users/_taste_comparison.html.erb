@@ -55,8 +55,12 @@
         <% end %>
       <% end %>
     <% end %>
-  <br>You are <%= ((@curr_score.to_f/@max_score.to_f)*100).round(2) %>% compatible with this user!<br><br>
-  <% @curr_score = 0 %>
-  <% @max_score = 0 %>
+    <% if @max_score != 0 %>
+      <br>You are <%= ((@curr_score.to_f/@max_score.to_f)*100).round(2) %>% compatible with this user!<br><br>
+      <% @curr_score = 0 %>
+      <% @max_score = 0 %>
+    <% else %>
+      <br><br>
+    <% end %>
   <% end %>
 <% end %>
