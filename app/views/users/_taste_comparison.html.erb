@@ -69,9 +69,11 @@
           <% @curr_score = 0 %>
           <% @max_score = 0 %>
         <% else %>
+        <td></td>
         <% end %>
       </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
+    <div id='paginate_links'><%= paginate @users %></div>

@@ -6,6 +6,7 @@
   word-wrap: break-word;
   vertical-align: top;
   background-color: #FE0085;
+  border: 1px solid black;
 }
 
 #taste_table table tr {
@@ -20,4 +21,27 @@
 
 #taste_table table td {
   vertical-align: bottom;
+}
+
+#paginate_links {
+  text-align: center;
+}
+
+span a, span.page.current, span {
+  font-family: 'Chewy', cursive;
+  font-size: 1.3rem;
+  color: #FE0085;
+  transition: background-color 300ms ease-out;
+}
+
+span a:hover {
+  color: white;
+}
+
+html body nav.top-bar ul.title-area li.name h1 a:hover {
+  color: white
+}
+
+table td, table th {
+  border: 1px solid black;
 }
