@@ -9,7 +9,7 @@
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
       <tr>
-        <th><%= user.email %></th>
+        <td><%= user.email %></td>
         <% Taste.where(user_id: current_user).each do |cur_user_taste| %>
           <% user_taste = Taste.find_by(artist_id: cur_user_taste.artist_id, user_id: user) %>
           <% if user_taste != nil %>
@@ -65,7 +65,7 @@
           <% end %>
         <% end %>
         <% if @max_score != 0 %>
-          <th><br>You are <%= ((@curr_score.to_f/@max_score.to_f)*100).round(2) %>% compatible with this user! </th>
+          <td>You are <%= ((@curr_score.to_f/@max_score.to_f)*100).round(2) %>% compatible with this user! </td>
           <% @curr_score = 0 %>
           <% @max_score = 0 %>
         <% else %>
