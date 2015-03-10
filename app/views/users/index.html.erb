@@ -1,2 +1,5 @@
-<div id="user_welcome"><h1>Welcome <%= current_user.email %></h1></div>
+<div id="user_welcome">
+  <h1>Welcome <%= current_user.email %></h1>
+  <h3> You have rated <%= pluralize(Taste.where(user_id: current_user).count, 'artist') %> </h3>
+</div>
 <div id="taste_table"><%= render 'taste_comparison' %></div>

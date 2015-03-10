@@ -3,6 +3,7 @@
     <tr>
       <th>User</th>
       <th>Percent Compatible</th>
+      <th>Number of Bands in Common</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
         <% Taste.where(user_id: current_user).each do |cur_user_taste| %>
           <% user_taste = Taste.find_by(artist_id: cur_user_taste.artist_id, user_id: user) %>
           <% if user_taste != nil %>
+          <% @count += 1 %>
             <% if cur_user_taste.opinion == "Love" && user_taste.opinion == "Love" %>
               <% @max_score += 200 %>
               <% @curr_score += 200 %>
@@ -71,8 +73,11 @@
         <% else %>
         <td></td>
         <% end %>
+        <td><%= @count %></td>
+          <% @count = 0 %>
       </tr>
       <% end %>
+
     <% end %>
   </tbody>
 </table>
