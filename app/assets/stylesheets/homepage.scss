@@ -2,11 +2,15 @@ body {
   background-color: #04CEC8;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, h2 a {
   color: #FE0085;
   text-align: center;
   font-family: 'Chewy', cursive;
   text-outline-color: white;
+}
+
+h2 a:hover {
+  color: white;
 }
 
 #rate_artist h1 {

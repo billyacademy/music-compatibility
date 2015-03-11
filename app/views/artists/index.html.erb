@@ -5,7 +5,7 @@
 <% if @artist == nil %>
   <h3>You have rated every artist!</h3>
 <% else %>
-  <div id="artist_name"><h2><%= @artist.name %></h2></div>
+  <div id="artist_name"><h2><%= link_to @artist.name, "https://www.youtube.com/results?search_query= #{@artist.name}" %></h2></div>
   <div id="tastes">
   <%= button_to "Love", { method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Love" }, class: "button"%>
   <%= button_to "Like", { method: :post, controller: "tastes", action: "create", artist_id: @artist.id, user_id: current_user, opinion: "Like" }, class: "button" %>
